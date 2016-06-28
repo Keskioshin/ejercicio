@@ -1,0 +1,18 @@
+<%= form_for(@order, url: orders_path, method: :post) do |f| %>
+
+  <p class="errores">
+    <% @order.errors.full_messages.each do |msg| %>
+      <span><%= msg %></span>
+    <% end %>
+  </p>
+
+
+
+  <%= f.date_select(:completed_at, order: [:month, :day, :year]) %>
+
+  <%= f.select(:state, ["completed", "checkout", "payment" ], {}, { class:"lol"}) %>
+
+  <%= f.number_field(:total, amount: "0.1") %>
+
+  <%= f.submit%>
+<% end %>

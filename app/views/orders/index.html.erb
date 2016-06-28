@@ -1,0 +1,11 @@
+<h1>index ordenes</h1>
+<%= link_to("nueva orden",new_order_path) %>
+<% @orders.each do |order| %>
+  <p>
+    <span>ID: <%= order.id %></span>
+    <span>Completada: <%= order.completed_at %></span>
+    <span>Estado: <%= order.state %></span>
+    <span>Total: <%= order.total %></span>
+    <%= link_to("borrar",order_path(order), method: :delete) %>
+  </p>
+<% end %>
